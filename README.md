@@ -23,12 +23,30 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+model.py
+```
+from django.db import models
+from django.contrib import admin
+class Book_DB(models.Model):
+      sno=models.IntegerField(primary_key="sno");
+      name=models.CharField(max_length=50);
+      author=models.CharField(max_length=70);
+      price=models.IntegerField();
+      publisher=models.CharField(max_length=60);
 
-Include your code here
+class Book_DBAdmin(admin.ModelAdmin):
+    list_display=("sno","name","author","price","publisher");
+```
+admin.py
+```
+from django.contrib import admin
+from .models import Book_DB,Book_DBAdmin
+admin.site.register(Book_DB,Book_DBAdmin)
+```
 
 ## OUTPUT
+![image](https://github.com/Jayapriya242/ORM/assets/114279259/396fd361-e802-4597-8e4e-7ead96773d2f)
 
-Include the screenshot of your admin page.
 
 
 ## RESULT
