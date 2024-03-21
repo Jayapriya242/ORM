@@ -7,7 +7,8 @@ To develop a Django application to store and retrieve data from a Book database 
 ## Entity Relationship Diagram
 
 Include your ER diagram here
-![ER](https://github.com/Jayapriya242/ORM/assets/114279259/71fac584-0c35-46ee-aec5-cad09178733f)
+![WhatsApp Image 2024-03-21 at 22 49 50_5c1eeb87](https://github.com/Jayapriya242/ORM/assets/114279259/8f0d2e77-66eb-4046-bba1-fc36b99b70e4)
+
 
 
 ## DESIGN STEPS
@@ -25,29 +26,30 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
-model.py
+models.py
 ```
-from django.db import models
-from django.contrib import admin
-class Book_DB(models.Model):
-      sno=models.IntegerField(primary_key="sno");
-      name=models.CharField(max_length=50);
-      author=models.CharField(max_length=70);
-      price=models.IntegerField();
-      publisher=models.CharField(max_length=60);
+ from django.db import models
+ from django.contrib import admin
+ class Book(models.Model):
+ bookno=models.IntegerField(primary_key="bookno")
+ bookname=models.CharField(max_length=20)
+ authorname=models.CharField(max_length=40)
+ publishdate=models.DateField()
+ price=models.IntegerField()
+ class BookAdmin(admin.ModelAdmin):
+ list_display=("bookno", "bookname", "authorname", "publishdate","price"
+```
+ admin.py
+ ```
+ from django.contrib import admin
+ from .models import Book,BookAdmin
+ admin.site.register(Book,BookAdmin)
+```
 
-class Book_DBAdmin(admin.ModelAdmin):
-    list_display=("sno","name","author","price","publisher");
-```
-admin.py
-```
-from django.contrib import admin
-from .models import Book_DB,Book_DBAdmin
-admin.site.register(Book_DB,Book_DBAdmin)
-```
 
 ## OUTPUT
-![image](https://github.com/Jayapriya242/ORM/assets/114279259/396fd361-e802-4597-8e4e-7ead96773d2f)
+![WhatsApp Image 2024-03-21 at 22 50 29_7735afcb](https://github.com/Jayapriya242/ORM/assets/114279259/5ec9bbbd-0ee0-4655-8ef8-7c027e8ca167)
+
 
 
 
