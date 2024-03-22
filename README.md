@@ -1,13 +1,13 @@
 # Ex02 Django ORM Web Application
-## Date: 21-03-2024
+## Date: 22-03-2024
 
 ## AIM
 To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
 
 ## Entity Relationship Diagram
 
-Include your ER diagram here
-![WhatsApp Image 2024-03-21 at 22 49 50_5c1eeb87](https://github.com/Jayapriya242/ORM/assets/114279259/8f0d2e77-66eb-4046-bba1-fc36b99b70e4)
+![ER-2](https://github.com/Jayapriya242/ORM/assets/114279259/155a5f68-a756-4793-8efe-f2216e8b6c46)
+
 
 
 
@@ -26,29 +26,35 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
-models.py
+model.py
 ```
- from django.db import models
- from django.contrib import admin
- class Book(models.Model):
- bookno=models.IntegerField(primary_key="bookno")
- bookname=models.CharField(max_length=20)
- authorname=models.CharField(max_length=40)
- publishdate=models.DateField()
- price=models.IntegerField()
- class BookAdmin(admin.ModelAdmin):
- list_display=("bookno", "bookname", "authorname", "publishdate","price"
+from django.db import models
+from django.contrib import admin
+class Employee (models.Model):
+    eid=models.IntegerField(primary_key=True)
+    name=models.CharField(max_length=100)
+    salary=models.IntegerField()
+    age=models.IntegerField()
+    email=models.EmailField()
+ 
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display=('eid','name','salary','age','email')
+
 ```
- admin.py
- ```
- from django.contrib import admin
- from .models import Book,BookAdmin
- admin.site.register(Book,BookAdmin)
+Admin.py
+
+```
+
+from django.contrib import admin
+from .models import Employee,EmployeeAdmin
+admin.site.register(Employee,EmployeeAdmin)
+
+
 ```
 
 
 ## OUTPUT
-![WhatsApp Image 2024-03-21 at 22 50 29_7735afcb](https://github.com/Jayapriya242/ORM/assets/114279259/5ec9bbbd-0ee0-4655-8ef8-7c027e8ca167)
+<img width="960" alt="image" src="https://github.com/Jayapriya242/ORM/assets/114279259/a22043d9-ed12-49f3-8f52-d648167a4828">
 
 
 
